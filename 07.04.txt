@@ -1,0 +1,15 @@
+goals:
+
+learn git: mostly done
+find a postgreSQL course:done
+continue java:undone
+-----------------------------------------------------
+LEARNING GIT
+-learned git basic commands
+-creating local and remote repos
+-creating-deleting-mergin new branches
+-basic version controls with branches
+-training by doing tasks which are above
+-----------------------------------------------------
+
+
