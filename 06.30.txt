@@ -1,0 +1,25 @@
+While registering asking:
+
++sign up with google
+
+Creating a personal url and choosing time zone of user
+
+Check and adds google calender
+
+Choicing available hours and days
+
+Asking role /user type: doc or patient or maybe assistant
+
+----------------------------------------------------
+
+
+IDE: IntelliJ
+
+Server side: JAVA- spring
+Client side: React
+Database: PostgreSQL
+------------------------------------------------------
+
+udemy courses java spring
+
+Professional Java Developer Career Starter: Java Foundations

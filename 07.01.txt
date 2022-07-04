@@ -1,0 +1,25 @@
+goals:
+
+-start a java course: done
+
+-learn create a git-repo:undone
+
+
+------------------------------------------------------------------
+Hello World project
+model package
+pet class 
+line 8 
+why did we need that 'public Pet(){}' what was the error?
+Because it is part of constructor.
+
+Study more about Constructors fundamental
+-----------------------------------------------------------------
+JAVA(Object oriented programming) basic concepts:
+-class,object,methods
+-varargs
+-public/static/protected methods/variables
+-constructors,getters&setters
+-heritage- parent/child classes
+
+
