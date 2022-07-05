@@ -1,13 +1,37 @@
 goals:
 
-learn postgreSQL
-train postgreSQL
-continue with java course
+learning postgreSQL:done
+training postgreSQL:done partly
+continue with java course:undone
 ---------------------------------------
+-BASIC PSQL COMMANDS
+-CREATING DATABASES,TABLES
+-INSERTING,FILTERING,COMPARISON
+-LIMIT,OFFSET,FETCH
+-SELECTIND DATA AT RANGE
+-MAX,MIN,AVERAGE
+-ALIAS, COALESCE
 psql commands: \i path --> create table
 CREATE DATABASE dbname
 CREATE TABLE tablename
 DROP TABLE tablename
 DROP DATABASE dbname
 SELECT * FROM tablename ORDER BY parameter ASC/DESC 
-
+SELECT country_of_birth ORDER BY country_of_birth; 
+SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth;
+SELECT * FROM person WHERE gender= 'Male' AND country_of_birth = 'Poland';
+SELECT * FROM person WHERE gender= 'Male' AND (country_of_birth = 'United States' OR country_of_birth = 'China');
+SELECT * FROM person OFFSET 5 LIMIT 10;
+SELECT * FROM person OFFSET 5 FETCH FIRST 5 ROW ONLY;
+SELECT * FROM person WHERE country_of_birth IN ('China','Brazil','France') ORDER BY id DESC;
+SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2000-01-01' AND '2015-01-01';
+SELECT * FROM person WHERE email LIKE '@google%';
+SELECT DISTINCT country_of_birth FROM person WHERE country_of_birth LIKE 'p%'; (doent match because of lower case)
+SELECT DISTINCT country_of_birth FROM person WHERE country_of_birth ILIKE 'p%';(it doesnt matter with ILIKE upper or lower)
+SELECT country_of_birth,COUNT(*) FROM person GROUP BY country_of_birth ORDER BY count DESC;
+SELECT country_of_birth,COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 5 ORDER BY count DESC;
+SELECT ROUND (AVG(price)) FROM car;
+SELECT make,ROUND(AVG(price)) FROM car GROUP BY make;
+SELECT make,model,MAX(price) FROM car GROUP BY make,model;
+SELECT id,make,model,price AS original_price,ROUND(price*0.1,2) AS ten_percent ,ROUND(price -(price*0.1),2) AS discounted_price  FROM car;
+SELECT COALESCE(email,'Email not provided') FROM person;
