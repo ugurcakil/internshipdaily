@@ -1,0 +1,13 @@
+goals:
+
+learn postgreSQL
+train postgreSQL
+continue with java course
+---------------------------------------
+psql commands: \i path --> create table
+CREATE DATABASE dbname
+CREATE TABLE tablename
+DROP TABLE tablename
+DROP DATABASE dbname
+SELECT * FROM tablename ORDER BY parameter ASC/DESC 
+
