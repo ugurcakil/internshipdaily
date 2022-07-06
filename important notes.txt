@@ -12,6 +12,7 @@ Section 2 is over
 -------------------------------------------------------
 
 Find a postgreSQL course:https://www.youtube.com/watch?v=qw--VYLpxG4
+finished
 ------------------------------------------------------
 git init
 git add . 
