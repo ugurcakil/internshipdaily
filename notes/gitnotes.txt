@@ -1,0 +1,17 @@
+GIT personal cheat sheet
+git init
+git add . 
+git commit -m "Message"
+git status
+git log
+git config --global user.username ugurcakil
+git add remote origin Server_Repo_URL
+git push -u origin master(or branchname)
+git clone Server_Repo_URL
+
+git branch -D branchname (delete branch in local)
+git push origin --delete branchname(delete branch from github)
+git branch branchname (create new branch)
+git checkout branchname(switch to branche)
+git push -u origin branchname(push from local to github)
+git merge branchname(take file from that branch)

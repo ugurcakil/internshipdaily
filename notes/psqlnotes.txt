@@ -1,0 +1,93 @@
+PSQL
+
+psql commands: \i path --> create table
+CREATE DATABASE dbname
+CREATE TABLE tablename
+DROP TABLE tablename
+DROP DATABASE dbname
+SELECT * FROM tablename ORDER BY parameter ASC/DESC 
+SELECT country_of_birth ORDER BY country_of_birth; 
+SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth;
+SELECT * FROM person WHERE gender= 'Male' AND country_of_birth = 'Poland';
+SELECT * FROM person WHERE gender= 'Male' AND (country_of_birth = 'United States' OR country_of_birth = 'China');
+SELECT * FROM person OFFSET 5 LIMIT 10;
+SELECT * FROM person OFFSET 5 FETCH FIRST 5 ROW ONLY;
+SELECT * FROM person WHERE country_of_birth IN ('China','Brazil','France') ORDER BY id DESC;
+SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2000-01-01' AND '2015-01-01';
+SELECT * FROM person WHERE email LIKE '@google%';
+SELECT DISTINCT country_of_birth FROM person WHERE country_of_birth LIKE 'p%'; (doent match because of lower case)
+SELECT DISTINCT country_of_birth FROM person WHERE country_of_birth ILIKE 'p%';(it doesnt matter with ILIKE upper or lower)
+SELECT country_of_birth,COUNT(*) FROM person GROUP BY country_of_birth ORDER BY count DESC;
+SELECT country_of_birth,COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 5 ORDER BY count DESC;
+SELECT ROUND (AVG(price)) FROM car;
+SELECT make,ROUND(AVG(price)) FROM car GROUP BY make;
+SELECT make,model,MAX(price) FROM car GROUP BY make,model;
+SELECT id,make,model,price AS original_price,ROUND(price*0.1,2) AS ten_percent ,ROUND(price -(price*0.1),2) AS discounted_price  FROM car;
+SELECT COALESCE(email,'Email not provided') FROM person;
+---------------------------------------------------------------------------------
+
+SELECT NOW();
+SELECT NOW()::DATE; it has also timezone options in https://www.postgresql.org/docs/current/datatype-datetime.html
+SELECT NOW()::TIME;
+
+SELECT EXTRACT(DAY FROM NOW());
+SELECT first_name, last_name, gender, email, date_of_birth, country_of_birth,EXTRACT (MONTH FROM AGE(NOW(),date_of_birth)) AS age FROM person;
+
+ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE (email); 
+ALTER TABLE person ADD UNIQUE(email);
+ALTER TABLE person DROP CONSTRAINT unique_email_address;
+
+ALTER TABLE person DROP CONSTRAINT person_pkey;
+ALTER TABLE person ADD PRIMARY KEY(id);
+
+ALTER TABLE person ADD CONSTRAINT gender_constraint CHECK (gender = 'Female' OR gender = 'Male');
+
+UPDATE person SET email = 'rori@gmail.com' WHERE id = 2007;
+
+
+
+INSERT INTO person (id,first_name,last_name,gender,email,date_of_birth,country_of_birth)
+VALUES (2015, 'Osgood', 'Biers', 'Male','obiers9@hud.gov',DATE '2021-07-31','Greece')
+ON CONFLICT (id) DO NOTHING;
+
+
+SELECT * FROM person JOIN car ON person.car_id = car.id;
+
+
+SELECT person.first_name, car.make, car.model, car.price
+FROM person
+JOIN car ON person.car_id = car.id;
+
+
+SELECT * FROM person
+LEFT JOIN car ON car.id = person.car_id;
+
+
+
+SELECT * FROM person
+LEFT JOIN car ON person.car_id = car.id
+WHERE car.* IS NULL;
+
+
+
+\copy (SELECT * FROM person LEFT JOIN car ON car.id = person.car_id) TO '/Users/ugrck/Downloads/results.csv' DELIMITER ',' CSV HEADER;
+
+
+
+
+SELECT * FROM pg_available_extensions;
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+
+
+
+SELECT * FROM person
+JOIN car USING(car_uid);
+
+SELECT * FROM person
+LEFT JOIN car USING(car_uid);
+
+
+SELECT * FROM person
+LEFT JOIN car USING(car_uid)
+WHERE car.* IS NULL;

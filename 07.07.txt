@@ -1,0 +1,235 @@
+goals
+
+train java:done
+
+
+
+-----------------------------------------------
+JAVA
+-STRINGS
+.toUpperCase()
+.toLowerCase()
+.isEmpty()
+.isBlank()
+.replace()
+.strip() has 3 versions
+.trim()
+.charAt()
+.compareTo()-> returns ascii value difference
+.compareToIgnoreCase()
+.contain()
+.concat()
+--------------------------------------------
+String text1 = "this is my text1";
+String text2 = "this is my text2";
+String finalString = new StringBuilder()
+					.append(text1)
+					.append(" ")
+					.append(text2)
+					.toString();
+System.out.println(finalString);
+--------------------------------------------
+String text1 = "this is my text1";
+String text2 = "this is my text2";
+String finalString = new StringBuffer()
+					.append(text1)
+					.append(" ")
+					.append(text2)
+					.toString();
+System.out.println(finalString);
+---------------------------------------------
+String text1 = "this is my text1";
+String text2 = "this is my text2";
+String oneMoreFinalString = String.format("%s %s",text1,text2);
+System.out.println(oneMoreFinalString);
+----------------------------------------------
+
+.substring()
+.indexOf()
+.lastIndexOf()
+----------------------------------------------------
+PHONE NUMBER EXTRACTION EXERCISE
+
+public class LearnStrings {
+    public static void main(String[] args) {
+        String phoneNumber = "() 333-5551";
+        String areaCode;
+        String exchange;
+        String lineNumber;
+
+        //System.out.println(takeArecode(phoneNumber));
+        //System.out.println(takeExchange(phoneNumber));
+        //System.out.println(takeLineNumber(phoneNumber));
+        System.out.println(parseAreaCode(phoneNumber));
+        System.out.println(parseExchange(phoneNumber));
+        System.out.println(parseLineNumber(phoneNumber));
+
+    }
+
+    /*public static String takeArecode(String phone){
+        return phone.substring(1,4);
+    }
+    public static String takeExchange(String phone){
+        return phone.substring(6,9);
+    }
+    public static String takeLineNumber(String phone){
+        return phone.substring(10,14);
+    }*/
+
+    public static String parseAreaCode(String phoneNumber){
+        int openParens = phoneNumber.indexOf("(");
+        int closeParens = phoneNumber.indexOf(")");
+        String areaCode = phoneNumber.substring(openParens + 1, closeParens);
+        return areaCode;
+    }
+
+    public static String parseExchange(String phoneNumber){
+        int openParens = phoneNumber.indexOf("-")-3;
+        int closeParens = phoneNumber.indexOf("-");
+        String exchange = phoneNumber.substring(openParens,closeParens);
+        return exchange;
+    }
+    public static String parseLineNumber(String phoneNumber) {
+        int openParens = phoneNumber.indexOf("-") + 1;
+        int closeParens = phoneNumber.indexOf("-") + 5;
+        String LineNumber = phoneNumber.substring(openParens, closeParens);
+        return LineNumber;
+    }
+}
+------------------------------------------------------------------------------
+    public class TextLearning {
+        public static void main(String[] args) {
+            String text = """
+                    Smith,Fred,1/1/1979,1111,ABC St.,Apple,CA
+                    McGuire,Jerry,2/2/1980,2222,DEF St.,Orange,NV
+                    Flintstone,Fred,3/3/1981,3333,GHI St.,Pear,MO
+                    Rubbie,Barney,4/4/1982,4444,JKL St.,Pineapple,IL
+                    Jetson,George,5/5/1983,5555,MNO St.,Grapefruit,NY
+                    """;
+            String[] people = text.split("\n");
+            System.out.println(people.length);
+            System.out.println(people[4]);
+            String[] george = people[4].split(",");
+            System.out.println(george[3]);
+
+        }
+}
+------------------------------------------------------------------------------
+public class LearnStrings {
+    public static void main(String[] args) {
+            String filename = "myfile.txt";
+
+        System.out.println(filename.endsWith("txt"));
+        System.out.println(filename.startsWith("my"));
+
+    }
+
+
+}
+-----------------------------------------------------------------------------
+differences between .contentEquals() and .equals()
+-----------------------------------------------------------------------------
+
+
+
+LEXICOGRAPHICALLY COMPARING
+
+public static void main(String[] args) {
+
+        String str1 = "This is Exercise 2";
+        String str2 = "This is Exercise 1";
+
+        System.out.println("String 1: " + str1);
+        System.out.println("String 2: " + str2);
+
+        int check = str1.compareTo(str2);
+        if(check > 0){System.out.println("\"" + str2 + "\"" + " is less than " + "\"" + str1 + "\"");}
+        else if(check < 0){System.out.println("\"" + str1 + "\"" + " is less than " + "\"" + str2 + "\"");}
+        else{System.out.println("\"" + str1 + "\"" + " is equal to " + "\"" + str2 + "\"");}
+
+    }
+-----------------------------------------------------------------------------
+CONTAINING
+
+public static void main(String[] args) {
+
+        String str1 = "PHP Exercises and Python Exercises";
+        String str2 ="and";
+        System.out.println("Original String: " + str1);
+        System.out.println("Specified char values: " + str2);
+        System.out.println(str1.contains(str2));
+
+
+
+    }
+-----------------------------------------------------------------------------
+CONTENTEQUALS
+
+public static void main(String[] args) {
+        String str1 = "example.com";
+        String str2 = "example.com";
+        String str3 = "Example.com";
+
+
+        System.out.println("Comparing " + str1 + " and " + str2 + ": " + str1.contentEquals(str2));
+        System.out.println("Comparing " + str1 + " and " + str3 + ": " + str1.contentEquals(str3));
+
+
+    }
+-----------------------------------------------------------------------------
+COPYCHAR TO A NEW STRING
+
+public static void main(String[] args) {
+        char[] arr_num = new char[]{'1','2','3','4' };
+        String str = String.copyValueOf(arr_num,1,3);
+        System.out.println("\nThe book contains " + str +" pages.\n");
+    }
+
+-----------------------------------------------------------------------------
+CURRENT TIME 
+
+import java.util.Calendar;
+
+public class LearnStrings {
+    public static void main(String[] args) {
+
+        Calendar c = Calendar.getInstance();
+        System.out.println("Current Date and Time :");
+        System.out.format("%tB %te, %tY%n", c, c, c);
+        System.out.format("%tl:%tM %tp%n", c, c, c);
+        System.out.println(c);
+
+    }
+}
+-----------------------------------------------------------------------------
+CREATE A UNIQUE IDENTIFIER
+
+public static void main(String[] args)
+    {
+        String str = "Python Exercises.";
+
+        // Get the hash code for the above string.
+        int hash_code = str.hashCode();
+
+        // Display the hash code.
+        System.out.println("The hash for " + str +
+            " is " + hash_code);
+    }
+-----------------------------------------------------------------------------
+REGION MATCHES
+
+public static void main(String[] args) {
+
+        String str1 = "Shanghai Houston Colorado Alexandria";
+        String str2 = "Alexandria Colorado Houston Shanghai";
+
+        boolean match1 = str1.regionMatches(0, str2, 28, 8);
+        boolean match2 = str1.regionMatches(9, str2, 9, 8);
+        
+
+        System.out.println("str1[0 - 7] == str2[28 - 35]? " + match1);
+        System.out.println("str1[9 - 15] == str2[9 - 15]? " + match2);
+
+
+    }
+-----------------------------------------------------------------------------

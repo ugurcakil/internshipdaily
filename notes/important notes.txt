@@ -1,0 +1,32 @@
+IDE: IntelliJ
+
+Server side: JAVA- spring
+Client side: svelte, view
+Database: PostgreSQL
+------------------------------------------------------
+
+udemy courses java spring
+
+Professional Java Developer Career Starter: Java Foundations
+Section 3 is over
+-------------------------------------------------------
+
+Find a postgreSQL course:https://www.youtube.com/watch?v=qw--VYLpxG4
+finished
+------------------------------------------------------
+java-strings exercise
+
+https://www.w3resource.com/java-exercises/string/index.php
+
+first 30 is over
+----------------------------------------------------------
+
+-----------------------------------------------------------
+
+
+
+
+
+
+
+
