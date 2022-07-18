@@ -1,0 +1,38 @@
+goals
+
+java:
+
+
+------------------------------------------------------------------------------
+-REGULAR EXPRESSIONS
+-NUMBER-BigDecimal,BigInteger
+-CUSTOMIZING NUMBER FORMATTERS
+
+-----------------------------------------------------------------------------
+public static void main(String[] args) {
+        Random random = new Random();
+        System.out.println(random.nextInt(20));}
+----------------------------------------------------------------------------
+public class MathStuff {
+    public static void main(String[] args) {
+        double radius = 0.8;
+        int period = 3;
+        double mass = 0.2;
+        System.out.println(calcPathVelocity(radius,period));
+        System.out.println(calcCentripetalAcceleration(radius,period));
+        System.out.println(calcCentripetalForce(radius,period,mass));
+
+    }
+
+    public static double calcPathVelocity(double radius , double period){
+        double circumference = 2* Math.PI * radius;
+        return circumference / period;
+    }
+    public static double calcCentripetalAcceleration(double radius, double period){
+        return Math.pow((calcPathVelocity(radius,period)),2) / radius;
+    }
+    public static double calcCentripetalForce(double radius, double period, double mass){
+        return calcCentripetalAcceleration(radius,period) * mass;
+    }
+}
+----------------------------------------------------------------------------

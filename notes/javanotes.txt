@@ -227,7 +227,74 @@ public static void main(String[] args) {
     }
 -----------------------------------------------------------------------------
 
+public class MathStuff {
+    public static void main(String[] args) {
+        double radius = 0.8;
+        int period = 3;
+        double mass = 0.2;
+        System.out.println(calcPathVelocity(radius,period));
+        System.out.println(calcCentripetalAcceleration(radius,period));
+        System.out.println(calcCentripetalForce(radius,period,mass));
+
+    }
+
+    public static double calcPathVelocity(double radius , double period){
+        double circumference = 2* Math.PI * radius;
+        return circumference / period;
+    }
+    public static double calcCentripetalAcceleration(double radius, double period){
+        return Math.pow((calcPathVelocity(radius,period)),2) / radius;
+    }
+    public static double calcCentripetalForce(double radius, double period, double mass){
+        return calcCentripetalAcceleration(radius,period) * mass;
+    }
+}
+
+-----------------------------------------------------------------------------
 
 
 
+import java.math.BigDecimal;
+import java.time.Period;
+
+public class CompoundInterestCalc {
+    public static BigDecimal calculate(String principal, String rate, int period, String contribution){
+     // Balance(Y) = P(1 +r)^Y + c[( (1 + r)^Y -1) / r]
+        BigDecimal a = (BigDecimal.ONE.add(new BigDecimal(rate))).pow(period);  // (1 + r)
+        BigDecimal c = a.subtract(BigDecimal.ONE); // ((1 + y)^Y -1)
+        BigDecimal d = c.divide(new BigDecimal(rate));  // (((1 + y)^Y -1) / r )
+        BigDecimal e = d.multiply(new BigDecimal(contribution)); // c[( (1 + r)^Y -1) / r]
+        BigDecimal f = a.multiply(new BigDecimal(principal)); // P(1 +r)^Y
+        BigDecimal g = f.add(e);
+        return g;
+    }
+
+    public static void main(String[] args) {
+        BigDecimal balance = CompoundInterestCalc.calculate("10000.00",".08",10,"1000.00");
+        System.out.println(balance);
+    }
+
+}
+------------------------------------------------------------------------------
+
+@Test
+    public void testThreeWrongGuessesAndOneCorrect(){
+        makeThreeWrongGuesses();
+        int correctAnswer = game.getRandomNumber();
+        String message = game.guess(correctAnswer);
+        assertEquals("You got it in 4 tries",message);
+    }
+
+    @Test
+    public void testTwoWrongGuessesAndOneCorrect(){
+        game.guess(-3);
+        game.guess(-3);
+        int correctAnswer = game.getRandomNumber();
+        String message = game.guess(correctAnswer);
+        Assertions.assertTrue(message.contains(" 3 "),"Should indicate 3 tries");
+        assertTrue(message.contains("You got it"),"Should indicate that we got the right number");
+    }
+
+}
+-------------------------------------------------------------------------------
 
