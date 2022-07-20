@@ -1,0 +1,11 @@
+goals
+-Debugging
+-Enums,Ordinals,'this',
+
+
+----------------------------------------------------------------------
+admin-all of them
+doktor-kendi randevularını görebilir, yeni randevu açabilir.
+asistan-birden fazla doktor görebilir
+hasta-sadece kendi randevularını
+----------------------------------------------------------------------
