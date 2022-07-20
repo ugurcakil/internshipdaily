@@ -1,0 +1,9 @@
+JAVA- training
+
+-Implementing Class-Hierarchies
+-Abstract Classes
+-Factory Methods
+-Nested Classes
+-------------------------------------------------------------
+
+https://github.com/ugurcakil/Employees
