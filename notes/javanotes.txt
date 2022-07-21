@@ -297,4 +297,6 @@ public class CompoundInterestCalc {
 
 }
 -------------------------------------------------------------------------------
-
+YOU CANT MAKE A CLASS TO EXTEND TWO CLASSES. NEVERTHELESS YOU CAN CREATE AN
+INTERFACE ONE OF CLASSES AND YOU CAN IMPLEMENT IT. BUT BE CAREFULL BY DOING IT.
+IT IS CALLED 'COMPOSITION'

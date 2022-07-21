@@ -1,0 +1,8 @@
+-Record
+-Lambdas vs Anonymous Classes ????
+-Composition versus Inheritance
+-Default Methods
+-Comparing Classes with 'instanceof'
+-------------------------------------------------------------
+
+https://github.com/ugurcakil/chessdemotry
