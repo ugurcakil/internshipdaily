@@ -1,0 +1,7 @@
+Intro to Spring framework
+
+-Web&HTTP basics
+-Displaying a simple list
+-Bootstrap Table
+-Spring Data
+-Save, Validate and Delete in memory database
